@@ -30,6 +30,8 @@ urlpatterns = [
     path('djadmin/', admin.site.urls),
     path('customer/api/', include('customer.api.urls')),
     path('',include('customer.urls')),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
 ]
 
