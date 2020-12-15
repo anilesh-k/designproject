@@ -29,28 +29,28 @@ def filterCategory(request,id):
 
 def addToCart(request,id):
     if request.method == 'GET':
-        if Cart.objects.filter(menu_item=id,is_active =True,qr_code__qr_code_id="nuqtyukm").exists():
+        if Cart.objects.filter(menu_item=id,is_active =True,qr_code__qr_code_id="i3jtruiu").exists():
             cart = Cart.objects.get(menu_item=id,is_active =True)
             cart.quantity = cart.quantity + 1
             cart.save()
         else:
             cart = Cart()
-            cart.qr_code = QRCode.objects.get(qr_code_id="nuqtyukm")
+            cart.qr_code = QRCode.objects.get(qr_code_id="i3jtruiu")
             cart.menu_item = MenuItem.objects.get(id=id)
             cart.save()
         messages.success(request, 'Item successfully Added')   
     return redirect(reverse('customer:cart'))
 
 def myCart(request): 
-    cart = Cart.objects.filter(is_active =True,qr_code__qr_code_id="nuqtyukm")
+    cart = Cart.objects.filter(is_active =True,qr_code__qr_code_id="i3jtruiu")
     emenu = MenuItem.objects.filter(is_active = True).order_by('-id')[:10]
     category = Category.objects.all()
     return render(request, 'cart.html', { 'emenu' : emenu, 'cart' : cart , 'category' : category})
 
 def placeOrder(request): 
-    cart = Cart.objects.filter(is_active =True,qr_code__qr_code_id="nuqtyukm")
+    cart = Cart.objects.filter(is_active =True,qr_code__qr_code_id="i3jtruiu")
     order = Order()
-    order.qr_code = QRCode.objects.get(qr_code_id="nuqtyukm")
+    order.qr_code = QRCode.objects.get(qr_code_id="i3jtruiu")
     # order.total_quantity = 1
     order.save()
     totalqty = 0
