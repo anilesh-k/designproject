@@ -1,7 +1,7 @@
 {% extends 'base4.html' %}
 
 {% block content %}
-<br><br> <br><br> 
+<br><br> 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">CART</h1>
   </div>
@@ -65,7 +65,7 @@
                             <input class="btn btn-default" min="0" name="quantity" id="qty" value="{{each.quantity}}" type="number">
                             &nbsp;<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                               class="btn btn-default btn-number"> 
-                              <span class="glyphicon glyphicon-plus"></span>
+                              <span class="plus"></span>
                             </button>
                           </div>
                           <small id="passwordHelpBlock" class="form-text text-muted text-center">
@@ -89,7 +89,7 @@
                 {% endfor %}
             <!--cart loop end here-->
                 
-                <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+                <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i>Adding
                   items to your cart does not mean booking them.</p>
 
               </div>
@@ -128,8 +128,7 @@
                   </li>
                 </ul>
 
-                <a href="{% url 'customer:placeOrder'  %}" class="btn btn-primary btn-block waves-effect waves-light">go to
-                  checkout</a>
+                <a href="{% url 'customer:placeOrder'  %}" class="btn btn-primary btn-block waves-effect waves-light">Order Now</a>
 
               </div>
             </div>
