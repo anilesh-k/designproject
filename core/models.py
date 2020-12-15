@@ -58,7 +58,7 @@ class QRCode(models.Model):
             box_size=12,
             border=0,
         )
-        code = settings.QR_CODE_URL + "/" + self.qr_code_id
+        code = settings.QR_CODE_URL 
         qr.add_data(code)
         qr.make(fit=True)
         img = qr.make_image()

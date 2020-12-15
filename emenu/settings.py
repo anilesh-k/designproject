@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'n0&94y97n3r27%0*_mjbr9jzvrxbmv3=bc!v=^ag=(-=$hl&@b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','emenudp.herokuapp.com']
 
@@ -173,5 +173,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-QR_CODE_URL ="http://127.0.0.1:8000/customer"
+QR_CODE_URL ="http://emenudp.herokuapp.com/customer"
 
