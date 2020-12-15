@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Order Management</h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Order</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" data-order='[[ 3, "desc" ]]' data-page-length='50'>
+                        <thead>
+                            <tr>
+                
+                                <th>Order No</th>
+                                <th>Table</th>
+                                <th>Total Amount</th>
+                                <th>Ordered Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                                
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                            {% for each in order %}
+                              <tr>
+                               
+                                <td>{{ each.id }}</td>
+                                <td>{{ each.qr_code.name }}</td>
+                                <td>{{ each.total }}</td>
+                                
+                                <td>{{ each.date_ordered }}</td>
+                                <td>
+                                {% if each.status == "Pending"%}
+                                    <p class="text-danger">{{ each.status }}</p>
+                                    {% else %}
+                                        <p class="text-success">{{ each.status }}</p>
+                                {% endif %}
+                                </td>
+                                <td>
+                                    <a href="#" data-toggle="modal" data-target="#myModal{{each.id}}" class="btn btn-primary">View
+                
+                                       </a>
+                                </td>
+                                
+                              </tr>
+                              <div class="modal fade" id="myModal{{each.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl" id="{{each.id}}" >
+                                  <div class="modal-content" >
+                                    <div class="modal-header">
+                                      <h4 class="modal-title text-primary" id="myModalLabel">{{ each.qr_code.name }} : <small>{{ each.qr_code.qr_code_id }}</small></h4>
+                                      
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                     <p>Ordered Time : {{ each.date_ordered }}</p>
+                                    </div>
+                                    <div class="modal-body text-center pagination-centered" width="100%">
+                                        
+                                        <div class="row-list shadow-sm p-1 mb-2 bg-white rounded">
+                
+                                            <div class="col-md-2">
+                                               <b>Order Id</b>
+                                            </div>
+                                            <div class="col-md-2" align="center">
+                                                <b>Menu Item Name</b>
+                                            </div>
+                                                
+                                            <div class="col-md-2" align="center">
+                                                <b>Quantity</b>
+                                            </div>
+                                            <div class="col-lg-2" align="center">
+                                              <b>Price</b>
+                                            </div>
+                                            <div class="col-md-2">
+                                              <b>Status</b>
+                                           </div>
+                                            <div class="col-md-2" align="center">
+                                              <b>Action</b>
+                                          </div>
+                                    
+                                        </div>
+                                        {% for each2 in each.order_master.all %}
+                                        <div class="row-list shadow-none p-1 mb-2 bg-light rounded">
+                
+                                            <div class="col-md-2">
+                                                {{ each2.order_tracking_id }}
+                                            </div>
+                                            <div class="col-md-2" align="center">
+                                                {{ each2.menu_item.name }}
+                                            </div>
+                                                
+                                            <div class="col-md-2" align="center">
+                                                {{ each2.quantity }}
+                                            </div>
+                                            <div class="col-lg-2" align="center">
+                                                {{ each2.unit_price }}
+                                            </div>
+                                            <div class="col-lg-2" align="center">
+                                              {% if each2.status == "Pending"%}
+                                                <p class="text-danger">{{ each2.status }}</p>
+                                              {% else %}
+                                               <p class="text-success">{{ each2.status }}</p>
+                                              {% endif %}
+                                          </div>
+                                            <div class="col-md-2" align="right">
+                                              {% if each2.status == "Pending"%}
+                                               <a href="{% url 'core:orderLineAccept' each2.id %}" class="btn btn-success" style="float: right;" >ACCEPT </a>
+                                              {% else %}
+                                               <p class="text-success"> {{ each2.date_confirmed }}</p>
+                                              {% endif %}
+                                              
+                                            </div>
+                                    
+                                        </div>
+                                      {% endfor %}
+                
+                                        
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        {% if each.status == "Pending"%}
+                                        <a href="{% url 'core:orderAccept' each.id %}" class="btn btn-success" style="float: left;" >ACCEPT ALL</a>
+                                        {% endif %}
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                                      <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+
+
+
+{% endblock %}
+
+
+
