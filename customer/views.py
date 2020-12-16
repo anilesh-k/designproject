@@ -71,9 +71,12 @@ def placeOrder(request):
     order.total_quantity = totalqty
     order.total = totalprice
     order.save()
-    messages.success(request, 'Item successfully Deleted')
     messages.success(request, 'Order placed successfully') 
-    return redirect(reverse('customer:index'))
+
+    return redirect(reverse('customer:success'))
+
+def success(request): 
+    return render(request, 'success.html')
  
 
         

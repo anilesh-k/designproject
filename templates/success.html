@@ -1,0 +1,84 @@
+{% extends 'base3.html' %}
+{% load static %}
+
+{% block nav %}
+<!-- Start header -->
+<header class="top-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#slides">
+        <img src="{% static 'customer/images/logo.webp' %}" alt="" width="40px"> eMenu
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbars-rs-food">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a class="nav-link" href="{% url 'customer:index'  %}">Home</a></li>
+        
+          <li class="nav-item"><a class="nav-link" href="{% url 'customer:cart' %}">My Bag</a></li>
+          
+           
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- End header -->
+{% endblock %}
+
+{% block content %}
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+  </head>
+    <style>
+      body {
+        text-align: center;
+        padding: 0 0;
+        background: #EBF0F5;
+      }
+        h1 {
+          color: #88B04B;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-weight: 900;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+        p {
+          color: #404F5E;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-size:20px;
+          margin: 0;
+        }
+      i {
+        color: #9ABC66;
+        font-size: 100px;
+        line-height: 200px;
+        margin-left:-15px;
+      }
+      .card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+      }
+    </style>
+    <body>
+        <br><br>
+      <div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark">✓</i>
+      </div>
+        <h1>Success</h1> 
+        <p>We received your Order<br/> Order will be served soon<br/><br/></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-sm" href="{% url 'customer:index'  %}" role="button">Continue to homepage</a>
+          </p>
+      </div>
+    </body>
+{% endblock %}
+
+

@@ -9,6 +9,7 @@ urlpatterns = [
     path('cart/', views.myCart , name= 'cart'),
     path('placeOrder/', views.placeOrder , name= 'placeOrder'),
     path('placeOrder/', views.placeOrder , name= 'placeOrder'),
+    path('success/', views.success , name= 'success'),
     path('filter/<int:id>/', views.filterCategory , name= 'filterCategory'),
     path('eg', views.eg , name= 'eg'),
     path('bs', views.bs , name= 'bs'),
