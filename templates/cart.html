@@ -29,11 +29,8 @@
 
 {% block boot %}
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        
-{% endblock %}
 
+{% endblock %}
 {% block content %}
 
 <!-- Original -->
@@ -46,30 +43,42 @@
   <!--Main layout-->
   <main>
     <div class="container">
-
+                <div class="panel-heading">
+                  
+                  
+                </div>
       <!--Section: Block Content-->
       <section class="mt-5 mb-4">
 
         <!--Grid row-->
         <div class="row">
+          
 
           <!--Grid column-->
           <div class="col-lg-8">
+            
 
             <!-- Card -->
             <div class="card wish-list mb-4">
+              <div class="panel-title">
+                <div class="row">
+                  
+                  <div class="col-xs-6"><br>
+                    <h5>
+                      &nbsp;&nbsp;&nbsp;
+                      &nbsp;                      
+                      <span class="glyphicon glyphicon-shopping-cart"></span>  eMenu Cart</h5>
+                  </div>
+                  <li class="btn"><br>
+
+                     <a class="btn btn-primary" href="{% url 'customer:index' %}" >
+                    <span class="glyphicon glyphicon-share-alt"></span>&nbsp;Continue shopping</a></li>
+
+                </div>
+                <br>
+              </div>
               <div class="card-body">
 
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <div class="row">
-                      <div class="col-xs-6"><br>
-                        <h5><span class="glyphicon glyphicon-shopping-cart"></span>  eMenu Cart</h5>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
             <!--cart loop start here-->
             <!-- <form action="{% url 'customer:placeOrder'  %}" method="POST">
               {% csrf_token %} -->
