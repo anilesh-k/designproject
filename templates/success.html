@@ -33,10 +33,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
   </head>
     <style>
-      body {
+      .main {
         text-align: center;
         padding: 0 0;
-        background: #EBF0F5;
+        background: #fff;
       }
         h1 {
           color: #88B04B;
@@ -68,6 +68,7 @@
     </style>
     <body>
         <br><br>
+        <div class="main">
       <div class="card">
       <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
         <i class="checkmark">✓</i>
@@ -78,6 +79,7 @@
             <a class="btn btn-primary btn-sm" href="{% url 'customer:index'  %}" role="button">Continue to homepage</a>
           </p>
       </div>
+    </div>
     </body>
 {% endblock %}
 

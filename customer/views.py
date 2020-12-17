@@ -19,7 +19,13 @@ def bs(request):
     emenu = MenuItem.objects.filter(is_active = True).order_by('-id')[:10]
     category = Category.objects.all()
     return render(request, 'base3.html', { 'emenu' : emenu , 'category' : category})
- 
+
+def erf(request): 
+    return render(request, 'error404.html')
+
+def ers(request): 
+    return render(request, 'error500.html')
+     
 def filterCategory(request,id):
     categ = Category.objects.get(id=id) 
     emenu = MenuItem.objects.filter(is_active = True,category = categ)

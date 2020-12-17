@@ -13,5 +13,7 @@ urlpatterns = [
     path('filter/<int:id>/', views.filterCategory , name= 'filterCategory'),
     path('eg', views.eg , name= 'eg'),
     path('bs', views.bs , name= 'bs'),
+    path('erf', views.erf , name= 'erf'),
+    path('ers', views.ers , name= 'ers'),
     
 ]
