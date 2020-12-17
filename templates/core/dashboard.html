@@ -12,8 +12,19 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
       <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Orders </h6>
+        <a href="{% url 'core:listOrder' %}"  style="float: right;" class="btn btn-primary btn-user" > View</a>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+                View pending orders
+        </div>
+      </div>
+    </div>
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
-        <a href="{% url 'core:addCategory' %}"  style="float: right;" class="btn btn-primary btn-user" >Create</a>
+        <a href="{% url 'core:listOrder' %}"  style="float: right;" class="btn btn-primary btn-user" > View</a>
       </div>
       <div class="card-body">
         <div class="table-responsive">
