@@ -25,6 +25,9 @@ def erf(request):
 
 def ers(request): 
     return render(request, 'error500.html')
+
+def main(request): 
+    return render(request, 'main.html')
      
 def filterCategory(request,id):
     categ = Category.objects.get(id=id) 
