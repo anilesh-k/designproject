@@ -52,7 +52,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Our Restaurant</strong></h1>
+                        <h1 class="m-b-20"><strong>Welcome To <br> our Restaurant</strong></h1>
                         <p class="m-b-40">Book your meal now
                         <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#menu">VIEW MENU</a></p>
                     </div>
@@ -64,7 +64,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Our Restaurant</strong></h1>
+                        <h1 class="m-b-20"><strong>Welcome To <br> eMenu Restaurant</strong></h1>
                         <p class="m-b-40">Book your meal now
                         <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#menu">VIEW MENU</a></p>
                     </div>
@@ -76,9 +76,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Our Restaurant</strong></h1>
+                        <h1 class="m-b-20"><strong>Welcome To <br> eMenu Restaurant</strong></h1>
                         <p class="m-b-40">Book your meal now
-                        <p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#menu">VIEW MENU</a></p>
+                        <p><a id="back-to-top" title="Back to top" class="btn btn-lg btn-circle btn-outline-new-white" href="#menu">VIEW MENU</a></p>
                     </div>
                 </div>
             </div>
@@ -108,9 +108,11 @@
                 <div class="button-group filter-button-group">
                     <button class="active"  data-filter="*">All</button>
                     
-                    {% for cat in category %}
-                        <a href="" class="active" id="cat"  data-filter=".drinks">&nbsp;&nbsp;{{ cat.name }}  &nbsp;&nbsp; </a>
-                    {% endfor %}
+					{% for cat in category %}
+					<button id="cat"  data-filter="{{cat.id}}">{{ cat.name }}  </button>
+						<!-- <a href="" class="active" id="cat"  
+							data-filter="{{menu.category}}">&nbsp;&nbsp;{{ cat.name }}  &nbsp;&nbsp; </a> -->
+					{% endfor %}
                     
                     
 
@@ -121,7 +123,7 @@
         
     <div class="row special-list">
         {% for menu in emenu %}
-        <div class="col-lg-4 col-md-6 special-grid drinks">
+        <div class="col-lg-4 col-md-6 special-grid {{menu.category}}">
             <div class="gallery-single fix">
                 <img src="{{menu.media_image}}" class="img-fluid" alt="Image">
                 <div class="why-text">
