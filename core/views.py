@@ -4,9 +4,10 @@ import random, string
 from django.contrib import messages
 import datetime
 from datetime import date
+from django.contrib.auth.decorators import user_passes_test
  
 # Create your views here.
-
+@user_passes_test(lambda u: u.is_superuser)
 def index(request): 
 
     return render(request, 'core/dashboard.html')
