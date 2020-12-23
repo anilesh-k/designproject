@@ -7,7 +7,7 @@ from datetime import date
 from django.contrib.auth.decorators import user_passes_test
  
 # Create your views here.
-@user_passes_test(lambda u: u.is_superuser)
+@user_passes_test(lambda u: u.is_staff)
 def index(request): 
 
     return render(request, 'core/dashboard.html')
