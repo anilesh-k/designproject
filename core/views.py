@@ -55,7 +55,6 @@ def addMenuItem(request):
         item = MenuItem()
         item.name = request.POST['name']
         item.price = request.POST['price']
-        item.catname = request.POST['catname']
         item.category = Category.objects.get(id=request.POST['category'])   
         item.description = request.POST['description']
         item.save()
@@ -89,7 +88,6 @@ def editMenuItem(request,id):
         
         item.name = request.POST['name']
         item.price = request.POST['price']
-        item.catname = request.POST['catname']
         item.category = Category.objects.get(id=request.POST['category'])   
         item.description = request.POST['description']
         item.save()

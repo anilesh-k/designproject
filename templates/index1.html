@@ -123,7 +123,7 @@
         
     <div class="row special-list">
         {% for menu in emenu %}
-        <div class="col-lg-4 col-md-6 special-grid {{menu.catname}}">
+        <div class="col-lg-4 col-md-6 special-grid {{menu.category.name}}">
             <div class="gallery-single fix">
                 <img src="{{menu.media_image}}" class="img-fluid" alt="Image">
                 <div class="why-text">
@@ -138,6 +138,8 @@
             <input type="hidden" name="quantity" value=1 id="">
             <h2>{{menu.name}}</h2>
             <h2> ₹{{menu.price}}</h2>
+            
+
              
             <a href="{% url 'customer:addToCart' menu.id  %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" >Add to cart</a>
         </div>

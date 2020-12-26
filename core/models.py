@@ -17,7 +17,6 @@ class MenuItem(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     price = models.FloatField(blank=True, null=True)
-    catname = models.TextField(blank=True, null=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, null=False, blank=False,
                                  related_name='menu_items')
     is_active = models.BooleanField(default=True)
