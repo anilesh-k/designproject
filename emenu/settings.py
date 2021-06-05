@@ -27,7 +27,7 @@ SECRET_KEY = 'n0&94y97n3r27%0*_mjbr9jzvrxbmv3=bc!v=^ag=(-=$hl&@b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','emenudp.herokuapp.com','emenuajce.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','emenuqr.herokuapp.com','emenuajce.herokuapp.com']
 
 
 # Application definition
@@ -173,5 +173,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-QR_CODE_URL ="http://emenudp.herokuapp.com/customer"
+QR_CODE_URL ="http://emenuqr.herokuapp.com/customer"
 
